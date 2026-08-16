@@ -1,0 +1,18 @@
+{
+  "title": "Privacy Policy",
+  "lastUpdated": "Last updated: August 2, 2026",
+  "heading1": "1. Data Collection & Storage",
+  "para1": "Kubo Saving does not collect, store, sell, or share personal data with us or third parties.",
+  "para2": "All financial information entered in the app is stored <strong>locally on your device</strong> and is not transmitted to any external server by Kubo Saving.",
+  "heading2": "2. Apple System Services",
+  "para3": "The app may use Apple system services, such as iCloud, backups, or system sharing features, depending on your device settings. These services are governed by Apple's privacy policy.",
+  "heading3": "3. Support Interactions",
+  "para4": "If you contact us for support, we may receive the information you choose to provide, such as your email address and message content, solely to respond to your request.",
+  "contactQuestion": "Do you have any questions about your privacy?",
+  "contactButton": "Contact us",
+  "footer": "© 2026 Kubo Saving. All rights reserved.",
+  "supportTitle": "Kubo Saving Support",
+  "supportPara": "Do you have a question, suggestion, or found an issue? We're here to help you get the most out of your finances.",
+  "supportContactButton": "Contact by Email",
+  "supportNote": "We will try to respond as soon as possible (usually within 24-48 hours)."
+}

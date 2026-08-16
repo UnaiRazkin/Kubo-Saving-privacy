@@ -1,0 +1,18 @@
+{
+  "title": "Politique de confidentialité",
+  "lastUpdated": "Dernière mise à jour : 2 août 2026",
+  "heading1": "1. Collecte et stockage des données",
+  "para1": "Kubo Saving ne collecte pas, ne stocke pas, ne vend pas et ne partage pas de données personnelles avec nous ou des tiers.",
+  "para2": "Toutes les informations financières saisies dans l'application sont stockées <strong>localement sur votre appareil</strong> et ne sont pas transmises à un serveur externe par Kubo Saving.",
+  "heading2": "2. Services système Apple",
+  "para3": "L'application peut utiliser des services système Apple, tels qu'iCloud, les sauvegardes ou les fonctions de partage système, en fonction des paramètres de votre appareil. Ces services sont régis par la politique de confidentialité d'Apple.",
+  "heading3": "3. Interactions de support",
+  "para4": "Si vous nous contactez pour obtenir de l'aide, nous pouvons recevoir les informations que vous choisissez de fournir, telles que votre adresse e-mail et le contenu du message, uniquement pour répondre à votre demande.",
+  "contactQuestion": "Avez-vous des questions sur votre vie privée ?",
+  "contactButton": "Contactez-nous",
+  "footer": "© 2026 Kubo Saving. Tous droits réservés.",
+  "supportTitle": "Assistance Kubo Saving",
+  "supportPara": "Vous avez une question, une suggestion ou avez trouvé un problème ? Nous sommes là pour vous aider à tirer le meilleur parti de vos finances.",
+  "supportContactButton": "Contacter par e-mail",
+  "supportNote": "Nous essaierons de répondre dès que possible (généralement sous 24 à 48 heures)."
+}

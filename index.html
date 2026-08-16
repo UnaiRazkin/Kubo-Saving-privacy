@@ -1,12 +1,187 @@
-Privacy Policy
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Policy - Kubo Saving</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #f5f5f7;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1d1d1f;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      padding: 40px 0;
+    }
+    
+    .card-privacy {
+      background-color: #ffffff;
+      max-width: 650px; /* Un poco más ancha para textos largos */
+      width: 90%;
+      padding: 40px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      box-sizing: border-box;
+    }
 
-Kubo Saving does not collect, store, sell, or share personal data with us or third parties.
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
 
-All financial information entered in the app is stored locally on your device and is not transmitted to any external server by Kubo Saving.
+    .last-updated {
+      font-size: 14px;
+      color: #86868b;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e5e5ea;
+      padding-bottom: 16px;
+    }
 
-The app may use Apple system services, such as iCloud, backups, or system sharing features, depending on your device settings. These services are governed by Apple's privacy policy.
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
 
-If you contact us for support, we may receive the information you choose to provide, such as your email address and message content, solely to respond to your request.
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #515154;
+      margin-bottom: 16px;
+    }
 
-Contact: urazufi02@gmail.com
-Last updated: August 2, 2026
+    .contact-section {
+      margin-top: 40px;
+      background-color: #f5f5f7;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .contact-section p {
+      margin-bottom: 16px;
+      color: #1d1d1f;
+      font-weight: 500;
+    }
+
+    .boton-contacto {
+      display: inline-block;
+      background-color: #007aff;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .boton-contacto:hover {
+      background-color: #005bb5;
+    }
+    
+    .boton-contacto:active {
+      transform: scale(0.97);
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #86868b;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:12px;width:90%;max-width:650px;">
+    <label for="languageSwitcher" style="margin-right:8px;color:#515154;align-self:center;">Idioma</label>
+    <select id="languageSwitcher" aria-label="Language selector" style="padding:6px;border-radius:8px;border:1px solid #e5e5ea;background:#fff;color:#1d1d1f;font-weight:600;"></select>
+  </div>
+
+  <main class="card-privacy">
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <div class="last-updated" data-i18n="lastUpdated">Last updated: August 2, 2026</div>
+
+    <section>
+      <h2 data-i18n="heading1">1. Data Collection &amp; Storage</h2>
+      <p data-i18n="para1">Kubo Saving does not collect, store, sell, or share personal data with us or third parties.</p>
+      <p data-i18n="para2">All financial information entered in the app is stored <strong>locally on your device</strong> and is not transmitted to any external server by Kubo Saving.</p>
+    </section>
+
+    <section>
+      <h2 data-i18n="heading2">2. Apple System Services</h2>
+      <p data-i18n="para3">The app may use Apple system services, such as iCloud, backups, or system sharing features, depending on your device settings. These services are governed by Apple's privacy policy.</p>
+    </section>
+
+    <section>
+      <h2 data-i18n="heading3">3. Support Interactions</h2>
+      <p data-i18n="para4">If you contact us for support, we may receive the information you choose to provide, such as your email address and message content, solely to respond to your request.</p>
+    </section>
+
+    <div class="contact-section">
+      <p data-i18n="contactQuestion">Do you have any questions about your privacy?</p>
+      <a id="contactLink" href="mailto:kubosaving@outlook.com" class="boton-contacto" data-i18n="contactButton">Contact us</a>
+    </div>
+  </main>
+
+  <footer class="footer" data-i18n="footer">&copy; 2026 Kubo Saving. All rights reserved.</footer>
+
+  <script>
+    (function(){
+      const supported = ['en','es','it','fr','de'];
+      const labels = { en: 'English', es: 'Español', it: 'Italiano', fr: 'Français', de: 'Deutsch' };
+      const select = document.getElementById('languageSwitcher');
+
+      function initialLang(){
+        const saved = localStorage.getItem('lang');
+        if(saved && supported.includes(saved)) return saved;
+        const nav = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+        return supported.includes(nav) ? nav : 'en';
+      }
+
+      function populateSelector(current){
+        supported.forEach(code => {
+          const opt = document.createElement('option');
+          opt.value = code;
+          opt.textContent = labels[code] || code;
+          select.appendChild(opt);
+        });
+        select.value = current;
+        select.addEventListener('change', () => loadLocale(select.value));
+      }
+
+      function loadLocale(lang){
+        fetch('locales/' + lang + '.json')
+          .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+          .then(json => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if(json[key]) el.innerHTML = json[key];
+            });
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
+            select.value = lang;
+          }).catch(err => {
+            console.warn('Locale load failed', err);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const lang = initialLang();
+        populateSelector(lang);
+        loadLocale(lang);
+      });
+    })();
+  </script>
+
+</body>
+</html>

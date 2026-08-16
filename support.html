@@ -80,22 +80,73 @@
 </head>
 <body>
 
+  <div style="display:flex;justify-content:flex-end;margin-bottom:12px;width:90%;max-width:500px;">
+    <label for="languageSwitcher" style="margin-right:8px;color:#515154;align-self:center;">Idioma</label>
+    <select id="languageSwitcher" aria-label="Language selector" style="padding:6px;border-radius:8px;border:1px solid #e5e5ea;background:#fff;color:#1d1d1f;font-weight:600;"></select>
+  </div>
+
   <main class="card-soporte">
     <!-- Si tienes un icono de tu app, puedes descomentar la siguiente línea y poner la ruta correcta -->
     <!-- <img src="icono-app.png" alt="Kubo Saving Logo" style="width: 80px; height: 80px; border-radius: 18px; margin-bottom: 20px;"> -->
     
-    <h1>Soporte de Kubo Saving</h1>
+    <h1 data-i18n="supportTitle">Soporte de Kubo Saving</h1>
     
-    <p>¿Tienes alguna duda, sugerencia o has encontrado algún problema? Estamos aquí para ayudarte a sacar el máximo partido a tus finanzas.</p>
+    <p data-i18n="supportPara">¿Tienes alguna duda, sugerencia o has encontrado algún problema? Estamos aquí para ayudarte a sacar el máximo partido a tus finanzas.</p>
     
-    <a href="mailto:urazufi02@gmail.com" class="boton-contacto">Contactar por Email</a>
+    <a id="contactLink" href="mailto:urazufi02@gmail.com" class="boton-contacto" data-i18n="supportContactButton">Contactar por Email</a>
     
-    <p class="nota">Intentaremos responder a tu consulta lo antes posible (habitualmente en 24-48 horas).</p>
+    <p class="nota" data-i18n="supportNote">Intentaremos responder a tu consulta lo antes posible (habitualmente en 24-48 horas).</p>
   </main>
 
-  <footer class="footer">
-    &copy; 2026 Kubo Saving. Todos los derechos reservados.
-  </footer>
+  <footer class="footer" data-i18n="footer">&copy; 2026 Kubo Saving. Todos los derechos reservados.</footer>
+
+  <script>
+    (function(){
+      const supported = ['en','es','it','fr','de'];
+      const labels = { en: 'English', es: 'Español', it: 'Italiano', fr: 'Français', de: 'Deutsch' };
+      const select = document.getElementById('languageSwitcher');
+
+      function initialLang(){
+        const saved = localStorage.getItem('lang');
+        if(saved && supported.includes(saved)) return saved;
+        const nav = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
+        return supported.includes(nav) ? nav : 'es';
+      }
+
+      function populateSelector(current){
+        supported.forEach(code => {
+          const opt = document.createElement('option');
+          opt.value = code;
+          opt.textContent = labels[code] || code;
+          select.appendChild(opt);
+        });
+        select.value = current;
+        select.addEventListener('change', () => loadLocale(select.value));
+      }
+
+      function loadLocale(lang){
+        fetch('locales/' + lang + '.json')
+          .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+          .then(json => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if(json[key]) el.innerHTML = json[key];
+            });
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
+            select.value = lang;
+          }).catch(err => {
+            console.warn('Locale load failed', err);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const lang = initialLang();
+        populateSelector(lang);
+        loadLocale(lang);
+      });
+    })();
+  </script>
 
 </body>
 </html>
