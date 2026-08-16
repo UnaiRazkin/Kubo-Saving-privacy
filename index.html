@@ -167,59 +167,299 @@
       flex-shrink: 0;
     }
 
+
+    /* ==========================================
+    1. .english (ZStack con rectángulos cruzados)
+    ========================================== */
     .flag-en { background: white; }
-    .flag-en .h-bar { position: absolute; background: #ff3b30; height: 18%; width: 100%; top: 41%; }
-    .flag-en .v-bar { position: absolute; background: #ff3b30; width: 14%; height: 100%; left: 43%; }
+    .flag-en .h-bar { position: absolute; background: #ff3b30; width: 100%; height: 18%; top: 41%; left: 0; }
+    .flag-en .v-bar { position: absolute; background: #ff3b30; width: 14%; height: 100%; top: 0; left: 43%; }
 
-    .flag-es { background: linear-gradient(to bottom, #ff3b30 25%, #ffcc00 25% 75%, #ff3b30 75%); }
+    /* ==========================================
+    2. .spanish (VStack 25% - 50% - 25%)
+    ========================================== */
+    .flag-es { display: flex; flex-direction: column; width: 100%; height: 100%; }
+    .flag-es .r1, .flag-es .r3 { background: #ff3b30; height: 25%; width: 100%; }
+    .flag-es .r2 { background: #ffcc00; height: 50%; width: 100%; }
 
-    .flag-ca { background: repeating-linear-gradient(to bottom, #ffcc00, #ffcc00 11.11%, #ff3b30 11.11%, #ff3b30 22.22%); }
+    /* ==========================================
+    3. .italian (HStack Tercios)
+    ========================================== */
+    .flag-it { display: flex; flex-direction: row; width: 100%; height: 100%; }
+    .flag-it .c1 { background: #34c759; width: 33.33%; height: 100%; }
+    .flag-it .c2 { background: white; width: 33.33%; height: 100%; }
+    .flag-it .c3 { background: #ff3b30; width: 33.33%; height: 100%; }
 
+    /* ==========================================
+    4. .french (HStack Tercios)
+    ========================================== */
+    .flag-fr { display: flex; flex-direction: row; width: 100%; height: 100%; }
+    .flag-fr .c1 { background: #007aff; width: 33.33%; height: 100%; }
+    .flag-fr .c2 { background: white; width: 33.33%; height: 100%; }
+    .flag-fr .c3 { background: #ff3b30; width: 33.33%; height: 100%; }
+
+    /* ==========================================
+    5. .german (VStack Tercios)
+    ========================================== */
+    .flag-de { display: flex; flex-direction: column; width: 100%; height: 100%; }
+    .flag-de .r1 { background: black; height: 33.33%; width: 100%; }
+    .flag-de .r2 { background: #ff3b30; height: 33.33%; width: 100%; }
+    .flag-de .r3 { background: #ffcc00; height: 33.33%; width: 100%; }
+
+    /* ==========================================
+    6. .dutch (VStack Tercios)
+    ========================================== */
+    .flag-nl { display: flex; flex-direction: column; width: 100%; height: 100%; }
+    .flag-nl .r1 { background: #ff3b30; height: 33.33%; width: 100%; }
+    .flag-nl .r2 { background: white; height: 33.33%; width: 100%; }
+    .flag-nl .r3 { background: #007aff; height: 33.33%; width: 100%; }
+
+    /* ==========================================
+    7. .danish (ZStack con offset de cruz nórdica)
+    ========================================== */
+    .flag-da { background: #ff3b30; }
+    .flag-da .h-bar { position: absolute; background: white; width: 100%; height: 18%; top: 41%; left: 0; }
+    .flag-da .v-bar { position: absolute; background: white; width: 14%; height: 100%; top: 0; left: 27%; } /* Simula tu offset(x: -width * 0.16) */
+
+    /* ==========================================
+    8. .swedish (ZStack cruz nórdica amarilla)
+    ========================================== */
+    .flag-sv { background: #007aff; }
+    .flag-sv .h-bar { position: absolute; background: #ffcc00; width: 100%; height: 18%; top: 41%; left: 0; }
+    .flag-sv .v-bar { position: absolute; background: #ffcc00; width: 14%; height: 100%; top: 0; left: 27%; }
+
+    /* ==========================================
+    9. .polish (VStack 50/50)
+    ========================================== */
+    .flag-pl { display: flex; flex-direction: column; width: 100%; height: 100%; }
+    .flag-pl .r1 { background: white; height: 50%; width: 100%; }
+    .flag-pl .r2 { background: #ff3b30; height: 50%; width: 100%; }
+
+    /* ==========================================
+    10. .finnish (ZStack cruz nórdica azul)
+    ========================================== */
+    .flag-fi { background: white; }
+    .flag-fi .h-bar { position: absolute; background: #007aff; width: 100%; height: 18%; top: 41%; left: 0; }
+    .flag-fi .v-bar { position: absolute; background: #007aff; width: 14%; height: 100%; top: 0; left: 27%; }
+
+    /* ==========================================
+    11. .catalan (Senyera con bucle de 4 barras)
+    ========================================== */
+    .flag-ca { background: #ffcc00; display: flex; flex-direction: column; justify-content: space-evenly; width: 100%; height: 100%; }
+    .flag-ca .bar { background: #ff3b30; height: 12%; width: 100%; }
+
+    /* ==========================================
+    12. .basque (Ikurriña con diagonales rotadas)
+    ========================================== */
     .flag-eu { background: #ff3b30; }
-    .flag-eu .diag { position: absolute; background: #34c759; height: 16%; width: 140%; top: 42%; left: -20%; }
-    .flag-eu .diag1 { transform: rotate(35deg); }
-    .flag-eu .diag2 { transform: rotate(-35deg); }
-    .flag-eu .h-bar { position: absolute; background: white; height: 16%; width: 100%; top: 42%; }
-    .flag-eu .v-bar { position: absolute; background: white; width: 16%; height: 100%; left: 42%; }
+    .flag-eu .diag1 { position: absolute; background: #34c759; width: 140%; height: 16%; top: 42%; left: -20%; transform: rotate(35deg); }
+    .flag-eu .diag2 { position: absolute; background: #34c759; width: 140%; height: 16%; top: 42%; left: -20%; transform: rotate(-35deg); }
+    .flag-eu .h-bar { position: absolute; background: white; width: 100%; height: 16%; top: 42%; left: 0; }
+    .flag-eu .v-bar { position: absolute; background: white; width: 16%; height: 100%; top: 0; left: 42%; }
 
-    .flag-gl { background: white; }
-    .flag-gl .diag { position: absolute; background: rgba(0, 122, 255, 0.8); height: 25%; width: 140%; top: 37%; left: -20%; transform: rotate(-35deg); }
+    /* ==========================================
+    13. .portuguese (HStack con círculo amarillo superpuesto)
+    ========================================== */
+    .flag-pt { display: flex; flex-direction: row; width: 100%; height: 100%; position: relative; }
+    .flag-pt .green { background: #34c759; width: 40%; height: 100%; }
+    .flag-pt .red { background: #ff3b30; width: 60%; height: 100%; }
+    .flag-pt .circle { position: absolute; background: #ffcc00; width: 35%; height: 35%; top: 32.5%; left: 22.5%; border-radius: 50%; }
+
+    /* ==========================================
+    14. .galician (ZStack con rectángulo azul rotado)
+    ========================================== */
+    .flag-gl { background: white; position: relative; }
+    .flag-gl .stripe { position: absolute; background: rgba(0, 122, 255, 0.8); width: 140%; height: 25%; top: 37.5%; left: -20%; transform: rotate(-35deg); }
   </style>
 </head>
 <body>
 
   <!-- MENÚ DESPLEGABLE PERSONALIZADO -->
-  <div class="dropdown-container">
-    <div class="dropdown-button" id="dropdownBtn">
-      <div class="flag-icon flag-en" id="currentFlag"><div class="h-bar"></div><div class="v-bar"></div></div>
-      <span id="currentLangText">English</span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+<div class="dropdown-container">
+
+  <!-- BOTÓN ACTUAL -->
+  <div class="dropdown-button" id="dropdownBtn">
+    <div class="flag-icon flag-en" id="currentFlag">
+      <div class="h-bar"></div>
+      <div class="v-bar"></div>
     </div>
-    
-    <div class="dropdown-menu" id="dropdownMenu">
-      <div class="dropdown-item" data-lang="en" data-name="English">
-        <div class="flag-icon flag-en"><div class="h-bar"></div><div class="v-bar"></div></div> English
-      </div>
-      <div class="dropdown-item" data-lang="es" data-name="Español">
-        <div class="flag-icon flag-es"></div> Español
-      </div>
-      <div class="dropdown-item" data-lang="ca" data-name="Català">
-        <div class="flag-icon flag-ca"></div> Català
-      </div>
-      <div class="dropdown-item" data-lang="eu" data-name="Euskara">
-        <div class="flag-icon flag-eu"><div class="diag diag1"></div><div class="diag diag2"></div><div class="h-bar"></div><div class="v-bar"></div></div> Euskara
-      </div>
-      <div class="dropdown-item" data-lang="gl" data-name="Galego">
-        <div class="flag-icon flag-gl"><div class="diag"></div></div> Galego
-      </div>
-    </div>
+
+    <span id="currentLangText">English</span>
+
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
   </div>
+
+
+  <!-- MENÚ -->
+  <div class="dropdown-menu" id="dropdownMenu">
+
+    <!-- 1. ENGLISH -->
+    <div class="dropdown-item" data-lang="en" data-name="English">
+      <div class="flag-icon flag-en">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>English</span>
+    </div>
+
+
+    <!-- 2. ESPAÑOL -->
+    <div class="dropdown-item" data-lang="es" data-name="Español">
+      <div class="flag-icon flag-es">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Español</span>
+    </div>
+
+
+    <!-- 3. ITALIANO -->
+    <div class="dropdown-item" data-lang="it" data-name="Italiano">
+      <div class="flag-icon flag-it">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+      </div>
+      <span>Italiano</span>
+    </div>
+
+
+    <!-- 4. FRANÇAIS -->
+    <div class="dropdown-item" data-lang="fr" data-name="Français">
+      <div class="flag-icon flag-fr">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+      </div>
+      <span>Français</span>
+    </div>
+
+
+    <!-- 5. DEUTSCH -->
+    <div class="dropdown-item" data-lang="de" data-name="Deutsch">
+      <div class="flag-icon flag-de">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Deutsch</span>
+    </div>
+
+
+    <!-- 6. NEDERLANDS -->
+    <div class="dropdown-item" data-lang="nl" data-name="Nederlands">
+      <div class="flag-icon flag-nl">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Nederlands</span>
+    </div>
+
+
+    <!-- 7. DANSK -->
+    <div class="dropdown-item" data-lang="da" data-name="Dansk">
+      <div class="flag-icon flag-da">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Dansk</span>
+    </div>
+
+
+    <!-- 8. SVENSKA -->
+    <div class="dropdown-item" data-lang="sv" data-name="Svenska">
+      <div class="flag-icon flag-sv">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Svenska</span>
+    </div>
+
+
+    <!-- 9. POLSKI -->
+    <div class="dropdown-item" data-lang="pl" data-name="Polski">
+      <div class="flag-icon flag-pl">
+        <div class="r1"></div>
+        <div class="r2"></div>
+      </div>
+      <span>Polski</span>
+    </div>
+
+
+    <!-- 10. SUOMI -->
+    <div class="dropdown-item" data-lang="fi" data-name="Suomi">
+      <div class="flag-icon flag-fi">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Suomi</span>
+    </div>
+
+
+    <!-- 11. CATALÀ -->
+    <div class="dropdown-item" data-lang="ca" data-name="Català">
+      <div class="flag-icon flag-ca">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <span>Català</span>
+    </div>
+
+
+    <!-- 12. EUSKARA -->
+    <div class="dropdown-item" data-lang="eu" data-name="Euskara">
+      <div class="flag-icon flag-eu">
+        <div class="diag1"></div>
+        <div class="diag2"></div>
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Euskara</span>
+    </div>
+
+
+    <!-- 13. PORTUGUÊS -->
+    <div class="dropdown-item" data-lang="pt" data-name="Português">
+      <div class="flag-icon flag-pt">
+        <div class="green"></div>
+        <div class="red"></div>
+        <div class="circle"></div>
+      </div>
+      <span>Português</span>
+    </div>
+
+
+    <!-- 14. GALEGO -->
+    <div class="dropdown-item" data-lang="gl" data-name="Galego">
+      <div class="flag-icon flag-gl">
+        <div class="stripe"></div>
+      </div>
+      <span>Galego</span>
+    </div>
+
+  </div>
+</div>
 
   <!-- TARJETA PRINCIPAL -->
   <main class="card-privacy">
     
     <!-- IMAGEN DE CABECERA -->
-    <img src="imagen-cabecera.png" alt="Imagen de Kubo Saving" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 24px;">
+    <img src="ChatGPT Image Jul 12, 2026 at 06_37_35 PM.png" alt="Imagen de Kubo Saving" style="width: 10%; height: auto; border-radius: 12px; margin-bottom: 24px;">
 
     <h1 data-i18n="title">Privacy Policy</h1>
     <div class="last-updated" data-i18n="lastUpdated">Last updated: August 2, 2026</div>
