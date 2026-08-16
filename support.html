@@ -6,89 +6,798 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      background-color: #f5f5f7; /* Un gris muy suave, estilo Apple */
+      background-color: #f5f5f7;
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #1d1d1f;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
       align-items: center;
-      justify-content: center;
+      padding: 40px 0;
+      min-height: 100vh;
     }
     
-    .card-soporte {
+    .card-privacy {
       background-color: #ffffff;
-      max-width: 500px;
+      max-width: 650px;
       width: 90%;
-      margin: 40px auto;
-      padding: 40px 30px;
+      padding: 40px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      text-align: center;
+      box-sizing: border-box;
     }
 
     h1 {
-      font-size: 26px;
-      font-weight: 600;
+      font-size: 28px;
+      font-weight: 700;
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
 
+    .last-updated {
+      font-size: 14px;
+      color: #86868b;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e5e5ea;
+      padding-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
     p {
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.6;
       color: #515154;
-      margin-bottom: 30px;
+      margin-bottom: 16px;
+    }
+
+    .contact-section {
+      margin-top: 40px;
+      background-color: #f5f5f7;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .contact-section p {
+      margin-bottom: 16px;
+      color: #1d1d1f;
+      font-weight: 500;
     }
 
     .boton-contacto {
       display: inline-block;
-      background-color: #007aff; /* Azul clásico de iOS */
+      background-color: #007aff;
       color: #ffffff;
       text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 12px;
+      padding: 12px 24px;
+      border-radius: 10px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 15px;
       transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
-    .boton-contacto:hover {
-      background-color: #005bb5;
-    }
-    
-    .boton-contacto:active {
-      transform: scale(0.97);
-    }
-
-    .nota {
-      font-size: 13px;
-      color: #86868b;
-      margin-top: 20px;
-      margin-bottom: 0;
-    }
+    .boton-contacto:hover { background-color: #005bb5; }
+    .boton-contacto:active { transform: scale(0.97); }
 
     .footer {
-      padding: 20px;
+      margin-top: 40px;
       text-align: center;
-      font-size: 12px;
+      font-size: 13px;
       color: #86868b;
+    }
+
+    .dropdown-container {
+      position: relative;
+      width: 90%;
+      max-width: 650px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      z-index: 100;
+    }
+
+    .dropdown-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #1d1d1f;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      user-select: none;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 6px;
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      display: none;
+      flex-direction: column;
+      min-width: 160px;
+      overflow: hidden;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      color: #1d1d1f;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: #f5f5f7;
+    }
+
+    /* --- BANDERAS CSS --- */
+    .flag-icon {
+      width: 28px;
+      height: 20px;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    /* =========================================================
+    ESTILOS DE LAS BANDERAS DEL MENÚ
+    ========================================================= */
+
+    .flag-icon {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    }
+
+
+    /* =========================================================
+    1. ENGLISH — Inglaterra
+    ========================================================= */
+
+    .flag-en {
+    position: relative;
+    background: #ffffff;
+    }
+
+    .flag-en .h-bar {
+    position: absolute;
+    background: #cf142b;
+    width: 100%;
+    height: 20%;
+    top: 40%;
+    left: 0;
+    }
+
+    .flag-en .v-bar {
+    position: absolute;
+    background: #cf142b;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 40%;
+    }
+
+
+    /* =========================================================
+    2. SPANISH — España
+    Proporción: 25 / 50 / 25
+    ========================================================= */
+
+    .flag-es {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-es .r1,
+    .flag-es .r3 {
+    background: #aa151b;
+    height: 25%;
+    width: 100%;
+    }
+
+    .flag-es .r2 {
+    background: #f1bf00;
+    height: 50%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    3. ITALIAN — Italia
+    ========================================================= */
+
+    .flag-it {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-it .c1 {
+    background: #009246;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-it .c2 {
+    background: #ffffff;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-it .c3 {
+    background: #ce2b37;
+    width: 33.333%;
+    height: 100%;
+    }
+
+
+    /* =========================================================
+    4. FRENCH — Francia
+    ========================================================= */
+
+    .flag-fr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-fr .c1 {
+    background: #0055a4;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-fr .c2 {
+    background: #ffffff;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-fr .c3 {
+    background: #ef4135;
+    width: 33.333%;
+    height: 100%;
+    }
+
+
+    /* =========================================================
+    5. GERMAN — Alemania
+    ========================================================= */
+
+    .flag-de {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-de .r1 {
+    background: #000000;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-de .r2 {
+    background: #dd0000;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-de .r3 {
+    background: #ffce00;
+    height: 33.333%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    6. DUTCH — Países Bajos
+    ========================================================= */
+
+    .flag-nl {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-nl .r1 {
+    background: #ae1c28;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-nl .r2 {
+    background: #ffffff;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-nl .r3 {
+    background: #21468b;
+    height: 33.333%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    7. DANISH — Dinamarca
+    Cruz nórdica
+    ========================================================= */
+
+    .flag-da {
+    position: relative;
+    background: #c8102e;
+    }
+
+    .flag-da .h-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 20%;
+    top: 40%;
+    left: 0;
+    }
+
+    .flag-da .v-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    8. SWEDISH — Suecia
+    ========================================================= */
+
+    .flag-sv {
+    position: relative;
+    background: #006aa7;
+    }
+
+    .flag-sv .h-bar {
+    position: absolute;
+    background: #fecc00;
+    width: 100%;
+    height: 18%;
+    top: 41%;
+    left: 0;
+    }
+
+    .flag-sv .v-bar {
+    position: absolute;
+    background: #fecc00;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    9. POLISH — Polonia
+    ========================================================= */
+
+    .flag-pl {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-pl .r1 {
+    background: #ffffff;
+    height: 50%;
+    width: 100%;
+    }
+
+    .flag-pl .r2 {
+    background: #dc143c;
+    height: 50%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    10. FINNISH — Finlandia
+    ========================================================= */
+
+    .flag-fi {
+    position: relative;
+    background: #ffffff;
+    }
+
+    .flag-fi .h-bar {
+    position: absolute;
+    background: #002f6c;
+    width: 100%;
+    height: 18%;
+    top: 41%;
+    left: 0;
+    }
+
+    .flag-fi .v-bar {
+    position: absolute;
+    background: #002f6c;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    11. CATALAN — Cataluña
+    Senyera
+    ========================================================= */
+
+    .flag-ca {
+    background: #f9c000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    padding: 8% 0;
+    box-sizing: border-box;
+    }
+
+    .flag-ca .bar {
+    background: #d50000;
+    height: 9%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    12. BASQUE — Euskadi
+    Ikurriña
+    ========================================================= */
+
+    .flag-eu {
+    position: relative;
+    background: #d20a0a;
+    }
+
+    /* Diagonal verde descendente */
+    .flag-eu .diag1 {
+    position: absolute;
+    background: #009b48;
+    width: 145%;
+    height: 18%;
+    top: 41%;
+    left: -22.5%;
+    transform: rotate(33deg);
+    transform-origin: center;
+    }
+
+    /* Diagonal verde ascendente */
+    .flag-eu .diag2 {
+    position: absolute;
+    background: #009b48;
+    width: 145%;
+    height: 18%;
+    top: 41%;
+    left: -22.5%;
+    transform: rotate(-33deg);
+    transform-origin: center;
+    }
+
+    /* Cruz blanca horizontal */
+    .flag-eu .h-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 13%;
+    top: 43.5%;
+    left: 0;
+    }
+
+    /* Cruz blanca vertical */
+    .flag-eu .v-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 13%;
+    height: 100%;
+    top: 0;
+    left: 43.5%;
+    }
+
+
+    /* =========================================================
+    13. PORTUGUESE — Portugal
+    ========================================================= */
+
+    .flag-pt {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    }
+
+    .flag-pt .green {
+    background: #046a38;
+    width: 40%;
+    height: 100%;
+    }
+
+    .flag-pt .red {
+    background: #da291c;
+    width: 60%;
+    height: 100%;
+    }
+
+    /* Representación simplificada del emblema */
+    .flag-pt .circle {
+    position: absolute;
+    background: #f9d616;
+    width: 35%;
+    height: 35%;
+    top: 32.5%;
+    left: 22.5%;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    }
+
+
+    /* =========================================================
+    14. GALICIAN — Galicia
+    ========================================================= */
+
+    .flag-gl {
+    position: relative;
+    background: #ffffff;
+    }
+
+    .flag-gl .stripe {
+    position: absolute;
+    background: #0056a6;
+    width: 145%;
+    height: 24%;
+    top: 38%;
+    left: -22.5%;
+    transform: rotate(-32deg);
+    transform-origin: center;
+    }
+
+
+    /* =========================================================
+    AJUSTES GENERALES
+    ========================================================= */
+
+    .dropdown-item .flag-icon,
+    .dropdown-button .flag-icon {
+    width: 30px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
     }
   </style>
 </head>
 <body>
 
-  <div style="display:flex;justify-content:flex-end;margin-bottom:12px;width:90%;max-width:500px;">
-    <label for="languageSwitcher" style="margin-right:8px;color:#515154;align-self:center;">Idioma</label>
-    <select id="languageSwitcher" aria-label="Language selector" style="padding:6px;border-radius:8px;border:1px solid #e5e5ea;background:#fff;color:#1d1d1f;font-weight:600;"></select>
+  <!-- MENÚ DESPLEGABLE PERSONALIZADO -->
+<div class="dropdown-container">
+
+  <!-- BOTÓN ACTUAL -->
+  <div class="dropdown-button" id="dropdownBtn">
+    <div class="flag-icon flag-en" id="currentFlag">
+      <div class="h-bar"></div>
+      <div class="v-bar"></div>
+    </div>
+
+    <span id="currentLangText">English</span>
+
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
   </div>
 
+
+  <!-- MENÚ -->
+  <div class="dropdown-menu" id="dropdownMenu">
+
+    <!-- 1. ENGLISH -->
+    <div class="dropdown-item" data-lang="en" data-name="English">
+      <div class="flag-icon flag-en">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>English</span>
+    </div>
+
+
+    <!-- 2. ESPAÑOL -->
+    <div class="dropdown-item" data-lang="es" data-name="Español">
+      <div class="flag-icon flag-es">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Español</span>
+    </div>
+
+
+    <!-- 3. ITALIANO -->
+    <div class="dropdown-item" data-lang="it" data-name="Italiano">
+      <div class="flag-icon flag-it">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+      </div>
+      <span>Italiano</span>
+    </div>
+
+
+    <!-- 4. FRANÇAIS -->
+    <div class="dropdown-item" data-lang="fr" data-name="Français">
+      <div class="flag-icon flag-fr">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+      </div>
+      <span>Français</span>
+    </div>
+
+
+    <!-- 5. DEUTSCH -->
+    <div class="dropdown-item" data-lang="de" data-name="Deutsch">
+      <div class="flag-icon flag-de">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Deutsch</span>
+    </div>
+
+
+    <!-- 6. NEDERLANDS -->
+    <div class="dropdown-item" data-lang="nl" data-name="Nederlands">
+      <div class="flag-icon flag-nl">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span>Nederlands</span>
+    </div>
+
+
+    <!-- 7. DANSK -->
+    <div class="dropdown-item" data-lang="da" data-name="Dansk">
+      <div class="flag-icon flag-da">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Dansk</span>
+    </div>
+
+
+    <!-- 8. SVENSKA -->
+    <div class="dropdown-item" data-lang="sv" data-name="Svenska">
+      <div class="flag-icon flag-sv">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Svenska</span>
+    </div>
+
+
+    <!-- 9. POLSKI -->
+    <div class="dropdown-item" data-lang="pl" data-name="Polski">
+      <div class="flag-icon flag-pl">
+        <div class="r1"></div>
+        <div class="r2"></div>
+      </div>
+      <span>Polski</span>
+    </div>
+
+
+    <!-- 10. SUOMI -->
+    <div class="dropdown-item" data-lang="fi" data-name="Suomi">
+      <div class="flag-icon flag-fi">
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Suomi</span>
+    </div>
+
+
+    <!-- 11. CATALÀ -->
+    <div class="dropdown-item" data-lang="ca" data-name="Català">
+      <div class="flag-icon flag-ca">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <span>Català</span>
+    </div>
+
+
+    <!-- 12. EUSKARA -->
+    <div class="dropdown-item" data-lang="eu" data-name="Euskara">
+      <div class="flag-icon flag-eu">
+        <div class="diag1"></div>
+        <div class="diag2"></div>
+        <div class="h-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+      <span>Euskara</span>
+    </div>
+
+
+    <!-- 13. PORTUGUÊS -->
+    <div class="dropdown-item" data-lang="pt" data-name="Português">
+      <div class="flag-icon flag-pt">
+        <div class="green"></div>
+        <div class="red"></div>
+        <div class="circle"></div>
+      </div>
+      <span>Português</span>
+    </div>
+
+
+    <!-- 14. GALEGO -->
+    <div class="dropdown-item" data-lang="gl" data-name="Galego">
+      <div class="flag-icon flag-gl">
+        <div class="stripe"></div>
+      </div>
+      <span>Galego</span>
+    </div>
+
+  </div>
+</div>
+
   <main class="card-soporte">
-    <!-- Si tienes un icono de tu app, puedes descomentar la siguiente línea y poner la ruta correcta -->
-    <!-- <img src="icono-app.png" alt="Kubo Saving Logo" style="width: 80px; height: 80px; border-radius: 18px; margin-bottom: 20px;"> -->
-    
+    <img src="ChatGPT Image Jul 12, 2026 at 06_37_35 PM.png" alt="Imagen de Kubo Saving" style="width: 20%; height: auto; border-radius: 12px; margin-bottom: 24px;">
+
     <h1 data-i18n="supportTitle">Soporte de Kubo Saving</h1>
     
     <p data-i18n="supportPara">¿Tienes alguna duda, sugerencia o has encontrado algún problema? Estamos aquí para ayudarte a sacar el máximo partido a tus finanzas.</p>

@@ -1,0 +1,18 @@
+{
+  "title": "Tietosuojakäytäntö",
+  "lastUpdated": "Viimeksi päivitetty: 2. elokuuta 2026",
+  "heading1": "1. Tietojen kerääminen ja tallentaminen",
+  "para1": "Kubo Saving ei kerää, tallenna, myy tai jaa henkilötietoja kanssamme tai kolmansien osapuolten kanssa.",
+  "para2": "Kaikki sovellukseen syötetyt taloustiedot tallennetaan <strong>paikallisesti laitteellesi</strong>, eikä Kubo Saving lähetä niitä ulkoiselle palvelimelle.",
+  "heading2": "2. Applen järjestelmäpalvelut",
+  "para3": "Sovellus voi käyttää Applen järjestelmäpalveluita, kuten iCloudia, varmuuskopioita tai järjestelmän jakamisominaisuuksia laitteen asetuksista riippuen. Näihin palveluihin sovelletaan Applen tietosuojakäytäntöä.",
+  "heading3": "3. Yhteydenotot tukeen",
+  "para4": "Jos otat meihin yhteyttä saadaksesi tukea, saatamme vastaanottaa tiedot, jotka päätät antaa meille, kuten sähköpostiosoitteesi ja viestisi sisällön, ainoastaan pyyntösi käsittelemiseksi.",
+  "contactQuestion": "Onko sinulla kysyttävää yksityisyydestäsi?",
+  "contactButton": "Ota yhteyttä",
+  "footer": "© 2026 Kubo Saving. Kaikki oikeudet pidätetään.",
+  "supportTitle": "Kubo Saving -tuki",
+  "supportPara": "Onko sinulla kysymys tai ehdotus, tai oletko löytänyt ongelman? Olemme täällä auttamassa sinua saamaan parhaan hyödyn taloudestasi.",
+  "supportContactButton": "Ota yhteyttä sähköpostitse",
+  "supportNote": "Pyrimme vastaamaan mahdollisimman pian (yleensä 24–48 tunnin kuluessa)."
+}
