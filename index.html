@@ -137,8 +137,23 @@
 
   <script>
     (function(){
-      const supported = ['en','es','it','fr','de'];
-      const labels = { en: 'English', es: 'Español', it: 'Italiano', fr: 'Français', de: 'Deutsch' };
+      const supported = ['en','es','it','fr','de','nl','da','sv','pl','fi','ca','eu','pt','gl'];
+      const labels = {
+        en: 'English',
+        es: 'Español',
+        it: 'Italiano',
+        fr: 'Français',
+        de: 'Deutsch',
+        nl: 'Nederlands',
+        da: 'Dansk',
+        sv: 'Svenska',
+        pl: 'Polski',
+        fi: 'Suomi',
+        ca: 'Català',
+        eu: 'Euskara',
+        pt: 'Português',
+        gl: 'Galego'
+      };
       const select = document.getElementById('languageSwitcher');
 
       function initialLang(){

@@ -1,0 +1,18 @@
+{
+  "title": "Integritetspolicy",
+  "lastUpdated": "Senast uppdaterad: 2 augusti 2026",
+  "heading1": "1. Datainsamling & lagring",
+  "para1": "Kubo Saving samlar inte in, lagrar, säljer eller delar personuppgifter med oss eller tredje part.",
+  "para2": "All ekonomisk information som anges i appen lagras <strong>lokalt på din enhet</strong> och överförs inte till någon extern server av Kubo Saving.",
+  "heading2": "2. Apple-systemtjänster",
+  "para3": "Appen kan använda Apple-systemtjänster, såsom iCloud, säkerhetskopior eller systemdelningsfunktioner, beroende på dina enhetsinställningar. Dessa tjänster omfattas av Apples sekretesspolicy.",
+  "heading3": "3. Supportinteraktioner",
+  "para4": "Om du kontaktar oss för support kan vi ta emot den information du väljer att lämna, såsom din e-postadress och meddelandeinnehåll, enbart för att svara på din förfrågan.",
+  "contactQuestion": "Har du frågor om din integritet?",
+  "contactButton": "Kontakta oss",
+  "footer": "© 2026 Kubo Saving. Alla rättigheter förbehålls.",
+  "supportTitle": "Kubo Saving Support",
+  "supportPara": "Har du en fråga, förslag eller hittat ett problem? Vi finns här för att hjälpa dig få ut det mesta av din ekonomi.",
+  "supportContactButton": "Kontakta via e-post",
+  "supportNote": "Vi försöker svara så snart som möjligt (vanligtvis inom 24–48 timmar)."
+}
