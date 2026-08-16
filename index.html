@@ -166,110 +166,452 @@
       box-sizing: border-box;
       flex-shrink: 0;
     }
+    /* =========================================================
+    ESTILOS DE LAS BANDERAS DEL MENÚ
+    ========================================================= */
+
+    .flag-icon {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    }
 
 
-    /* ==========================================
-    1. .english (ZStack con rectángulos cruzados)
-    ========================================== */
-    .flag-en { background: white; }
-    .flag-en .h-bar { position: absolute; background: #ff3b30; width: 100%; height: 18%; top: 41%; left: 0; }
-    .flag-en .v-bar { position: absolute; background: #ff3b30; width: 14%; height: 100%; top: 0; left: 43%; }
+    /* =========================================================
+    1. ENGLISH — Inglaterra
+    ========================================================= */
 
-    /* ==========================================
-    2. .spanish (VStack 25% - 50% - 25%)
-    ========================================== */
-    .flag-es { display: flex; flex-direction: column; width: 100%; height: 100%; }
-    .flag-es .r1, .flag-es .r3 { background: #ff3b30; height: 25%; width: 100%; }
-    .flag-es .r2 { background: #ffcc00; height: 50%; width: 100%; }
+    .flag-en {
+    position: relative;
+    background: #ffffff;
+    }
 
-    /* ==========================================
-    3. .italian (HStack Tercios)
-    ========================================== */
-    .flag-it { display: flex; flex-direction: row; width: 100%; height: 100%; }
-    .flag-it .c1 { background: #34c759; width: 33.33%; height: 100%; }
-    .flag-it .c2 { background: white; width: 33.33%; height: 100%; }
-    .flag-it .c3 { background: #ff3b30; width: 33.33%; height: 100%; }
+    .flag-en .h-bar {
+    position: absolute;
+    background: #cf142b;
+    width: 100%;
+    height: 20%;
+    top: 40%;
+    left: 0;
+    }
 
-    /* ==========================================
-    4. .french (HStack Tercios)
-    ========================================== */
-    .flag-fr { display: flex; flex-direction: row; width: 100%; height: 100%; }
-    .flag-fr .c1 { background: #007aff; width: 33.33%; height: 100%; }
-    .flag-fr .c2 { background: white; width: 33.33%; height: 100%; }
-    .flag-fr .c3 { background: #ff3b30; width: 33.33%; height: 100%; }
+    .flag-en .v-bar {
+    position: absolute;
+    background: #cf142b;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 40%;
+    }
 
-    /* ==========================================
-    5. .german (VStack Tercios)
-    ========================================== */
-    .flag-de { display: flex; flex-direction: column; width: 100%; height: 100%; }
-    .flag-de .r1 { background: black; height: 33.33%; width: 100%; }
-    .flag-de .r2 { background: #ff3b30; height: 33.33%; width: 100%; }
-    .flag-de .r3 { background: #ffcc00; height: 33.33%; width: 100%; }
 
-    /* ==========================================
-    6. .dutch (VStack Tercios)
-    ========================================== */
-    .flag-nl { display: flex; flex-direction: column; width: 100%; height: 100%; }
-    .flag-nl .r1 { background: #ff3b30; height: 33.33%; width: 100%; }
-    .flag-nl .r2 { background: white; height: 33.33%; width: 100%; }
-    .flag-nl .r3 { background: #007aff; height: 33.33%; width: 100%; }
+    /* =========================================================
+    2. SPANISH — España
+    Proporción: 25 / 50 / 25
+    ========================================================= */
 
-    /* ==========================================
-    7. .danish (ZStack con offset de cruz nórdica)
-    ========================================== */
-    .flag-da { background: #ff3b30; }
-    .flag-da .h-bar { position: absolute; background: white; width: 100%; height: 18%; top: 41%; left: 0; }
-    .flag-da .v-bar { position: absolute; background: white; width: 14%; height: 100%; top: 0; left: 27%; } /* Simula tu offset(x: -width * 0.16) */
+    .flag-es {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
 
-    /* ==========================================
-    8. .swedish (ZStack cruz nórdica amarilla)
-    ========================================== */
-    .flag-sv { background: #007aff; }
-    .flag-sv .h-bar { position: absolute; background: #ffcc00; width: 100%; height: 18%; top: 41%; left: 0; }
-    .flag-sv .v-bar { position: absolute; background: #ffcc00; width: 14%; height: 100%; top: 0; left: 27%; }
+    .flag-es .r1,
+    .flag-es .r3 {
+    background: #aa151b;
+    height: 25%;
+    width: 100%;
+    }
 
-    /* ==========================================
-    9. .polish (VStack 50/50)
-    ========================================== */
-    .flag-pl { display: flex; flex-direction: column; width: 100%; height: 100%; }
-    .flag-pl .r1 { background: white; height: 50%; width: 100%; }
-    .flag-pl .r2 { background: #ff3b30; height: 50%; width: 100%; }
+    .flag-es .r2 {
+    background: #f1bf00;
+    height: 50%;
+    width: 100%;
+    }
 
-    /* ==========================================
-    10. .finnish (ZStack cruz nórdica azul)
-    ========================================== */
-    .flag-fi { background: white; }
-    .flag-fi .h-bar { position: absolute; background: #007aff; width: 100%; height: 18%; top: 41%; left: 0; }
-    .flag-fi .v-bar { position: absolute; background: #007aff; width: 14%; height: 100%; top: 0; left: 27%; }
 
-    /* ==========================================
-    11. .catalan (Senyera con bucle de 4 barras)
-    ========================================== */
-    .flag-ca { background: #ffcc00; display: flex; flex-direction: column; justify-content: space-evenly; width: 100%; height: 100%; }
-    .flag-ca .bar { background: #ff3b30; height: 12%; width: 100%; }
+    /* =========================================================
+    3. ITALIAN — Italia
+    ========================================================= */
 
-    /* ==========================================
-    12. .basque (Ikurriña con diagonales rotadas)
-    ========================================== */
-    .flag-eu { background: #ff3b30; }
-    .flag-eu .diag1 { position: absolute; background: #34c759; width: 140%; height: 16%; top: 42%; left: -20%; transform: rotate(35deg); }
-    .flag-eu .diag2 { position: absolute; background: #34c759; width: 140%; height: 16%; top: 42%; left: -20%; transform: rotate(-35deg); }
-    .flag-eu .h-bar { position: absolute; background: white; width: 100%; height: 16%; top: 42%; left: 0; }
-    .flag-eu .v-bar { position: absolute; background: white; width: 16%; height: 100%; top: 0; left: 42%; }
+    .flag-it {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    }
 
-    /* ==========================================
-    13. .portuguese (HStack con círculo amarillo superpuesto)
-    ========================================== */
-    .flag-pt { display: flex; flex-direction: row; width: 100%; height: 100%; position: relative; }
-    .flag-pt .green { background: #34c759; width: 40%; height: 100%; }
-    .flag-pt .red { background: #ff3b30; width: 60%; height: 100%; }
-    .flag-pt .circle { position: absolute; background: #ffcc00; width: 35%; height: 35%; top: 32.5%; left: 22.5%; border-radius: 50%; }
+    .flag-it .c1 {
+    background: #009246;
+    width: 33.333%;
+    height: 100%;
+    }
 
-    /* ==========================================
-    14. .galician (ZStack con rectángulo azul rotado)
-    ========================================== */
-    .flag-gl { background: white; position: relative; }
-    .flag-gl .stripe { position: absolute; background: rgba(0, 122, 255, 0.8); width: 140%; height: 25%; top: 37.5%; left: -20%; transform: rotate(-35deg); }
+    .flag-it .c2 {
+    background: #ffffff;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-it .c3 {
+    background: #ce2b37;
+    width: 33.333%;
+    height: 100%;
+    }
+
+
+    /* =========================================================
+    4. FRENCH — Francia
+    ========================================================= */
+
+    .flag-fr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-fr .c1 {
+    background: #0055a4;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-fr .c2 {
+    background: #ffffff;
+    width: 33.333%;
+    height: 100%;
+    }
+
+    .flag-fr .c3 {
+    background: #ef4135;
+    width: 33.333%;
+    height: 100%;
+    }
+
+
+    /* =========================================================
+    5. GERMAN — Alemania
+    ========================================================= */
+
+    .flag-de {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-de .r1 {
+    background: #000000;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-de .r2 {
+    background: #dd0000;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-de .r3 {
+    background: #ffce00;
+    height: 33.333%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    6. DUTCH — Países Bajos
+    ========================================================= */
+
+    .flag-nl {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-nl .r1 {
+    background: #ae1c28;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-nl .r2 {
+    background: #ffffff;
+    height: 33.333%;
+    width: 100%;
+    }
+
+    .flag-nl .r3 {
+    background: #21468b;
+    height: 33.333%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    7. DANISH — Dinamarca
+    Cruz nórdica
+    ========================================================= */
+
+    .flag-da {
+    position: relative;
+    background: #c8102e;
+    }
+
+    .flag-da .h-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 20%;
+    top: 40%;
+    left: 0;
+    }
+
+    .flag-da .v-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    8. SWEDISH — Suecia
+    ========================================================= */
+
+    .flag-sv {
+    position: relative;
+    background: #006aa7;
+    }
+
+    .flag-sv .h-bar {
+    position: absolute;
+    background: #fecc00;
+    width: 100%;
+    height: 18%;
+    top: 41%;
+    left: 0;
+    }
+
+    .flag-sv .v-bar {
+    position: absolute;
+    background: #fecc00;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    9. POLISH — Polonia
+    ========================================================= */
+
+    .flag-pl {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    }
+
+    .flag-pl .r1 {
+    background: #ffffff;
+    height: 50%;
+    width: 100%;
+    }
+
+    .flag-pl .r2 {
+    background: #dc143c;
+    height: 50%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    10. FINNISH — Finlandia
+    ========================================================= */
+
+    .flag-fi {
+    position: relative;
+    background: #ffffff;
+    }
+
+    .flag-fi .h-bar {
+    position: absolute;
+    background: #002f6c;
+    width: 100%;
+    height: 18%;
+    top: 41%;
+    left: 0;
+    }
+
+    .flag-fi .v-bar {
+    position: absolute;
+    background: #002f6c;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    left: 28%;
+    }
+
+
+    /* =========================================================
+    11. CATALAN — Cataluña
+    Senyera
+    ========================================================= */
+
+    .flag-ca {
+    background: #f9c000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    padding: 8% 0;
+    box-sizing: border-box;
+    }
+
+    .flag-ca .bar {
+    background: #d50000;
+    height: 9%;
+    width: 100%;
+    }
+
+
+    /* =========================================================
+    12. BASQUE — Euskadi
+    Ikurriña
+    ========================================================= */
+
+    .flag-eu {
+    position: relative;
+    background: #d20a0a;
+    }
+
+    /* Diagonal verde descendente */
+    .flag-eu .diag1 {
+    position: absolute;
+    background: #009b48;
+    width: 145%;
+    height: 18%;
+    top: 41%;
+    left: -22.5%;
+    transform: rotate(33deg);
+    transform-origin: center;
+    }
+
+    /* Diagonal verde ascendente */
+    .flag-eu .diag2 {
+    position: absolute;
+    background: #009b48;
+    width: 145%;
+    height: 18%;
+    top: 41%;
+    left: -22.5%;
+    transform: rotate(-33deg);
+    transform-origin: center;
+    }
+
+    /* Cruz blanca horizontal */
+    .flag-eu .h-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 13%;
+    top: 43.5%;
+    left: 0;
+    }
+
+    /* Cruz blanca vertical */
+    .flag-eu .v-bar {
+    position: absolute;
+    background: #ffffff;
+    width: 13%;
+    height: 100%;
+    top: 0;
+    left: 43.5%;
+    }
+
+
+    /* =========================================================
+    13. PORTUGUESE — Portugal
+    ========================================================= */
+
+    .flag-pt {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    }
+
+    .flag-pt .green {
+    background: #046a38;
+    width: 40%;
+    height: 100%;
+    }
+
+    .flag-pt .red {
+    background: #da291c;
+    width: 60%;
+    height: 100%;
+    }
+
+    /* Representación simplificada del emblema */
+    .flag-pt .circle {
+    position: absolute;
+    background: #f9d616;
+    width: 35%;
+    height: 35%;
+    top: 32.5%;
+    left: 22.5%;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    }
+
+
+    /* =========================================================
+    14. GALICIAN — Galicia
+    ========================================================= */
+
+    .flag-gl {
+    position: relative;
+    background: #ffffff;
+    }
+
+    .flag-gl .stripe {
+    position: absolute;
+    background: #0056a6;
+    width: 145%;
+    height: 24%;
+    top: 38%;
+    left: -22.5%;
+    transform: rotate(-32deg);
+    transform-origin: center;
+    }
+
+
+    /* =========================================================
+    AJUSTES GENERALES
+    ========================================================= */
+
+    .dropdown-item .flag-icon,
+    .dropdown-button .flag-icon {
+    width: 30px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
